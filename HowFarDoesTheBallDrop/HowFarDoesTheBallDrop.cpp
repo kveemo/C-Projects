@@ -21,8 +21,21 @@ int main()
     std::cout << "Input the seconds it falls for\n";
     std::cin >> seconds;
 
-    std::cout << "At " << seconds << " seconds the ball is at " <<
-        height - getDistanceFallen(seconds) << " meters";
+    int i{ 0 };
+    while (i <= seconds) 
+    {
+        if (height - getDistanceFallen(i) <= 0) 
+        {
+            std::cout << "At "<< i << " seconds the ball is on the ground\n";
+            break;
+        }
+        else
+        {
+            std::cout << "At " << i << " seconds the ball is at " <<
+                height - getDistanceFallen(i) << " meters\n";
+            i++;
+        }
+    }
 
     return 0;
 }
