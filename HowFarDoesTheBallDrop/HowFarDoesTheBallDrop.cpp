@@ -18,8 +18,17 @@ int main()
     std::cin >> height;
 
     double seconds{};
-    std::cout << "Input the seconds it falls for\n";
-    std::cin >> seconds;
+    bool isValid{ false };
+    
+    while (!isValid) {
+        std::cout << "Input the seconds it falls for\n";
+        std::cin >> seconds;
+        if (seconds < 0)
+            std::cout << "Cant fall for negative seconds!! \n";
+        else
+            isValid = true;
+    }
+    
 
     int i{ 0 };
     while (i <= seconds) 
