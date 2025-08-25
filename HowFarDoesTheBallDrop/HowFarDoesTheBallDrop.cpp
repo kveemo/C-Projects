@@ -14,26 +14,34 @@ int main()
 {
 
     double height{};
-    std::cout << "Input the height of the tower in meters\n";
-    std::cin >> height;
+    bool isValidHeight{ false };
+
+    while (!isValidHeight) {
+        std::cout << "Input the height of the tower in meters\n";
+        std::cin >> height;
+        if (height <= 0)
+            std::cout << "Cant have a negative or 0 height!! \n";
+        else
+            isValidHeight = true;
+    }
 
     double seconds{};
-    bool isValid{ false };
+    bool isValidTime{ false };
     
-    while (!isValid) {
+    while (!isValidTime) {
         std::cout << "Input the seconds it falls for\n";
         std::cin >> seconds;
         if (seconds < 0)
             std::cout << "Cant fall for negative seconds!! \n";
         else
-            isValid = true;
+            isValidTime = true;
     }
     
 
     int i{ 0 };
     while (i <= seconds) 
     {
-        if (height - getDistanceFallen(i) <= 0) 
+        if (height - getDistanceFallen(i) <= 0) //calculate displacement
         {
             std::cout << "At "<< i << " seconds the ball is on the ground\n";
             break;
